@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-// import Poster from './Poster'
+import React from 'react';
+import Poster from './Poster'
 
-const Movies = ({movies}) => {
+const MovieContainer = ({movies}) => {
   const movieCards = movies.map(movie => {
     return (
       <Poster 
@@ -11,11 +11,16 @@ const Movies = ({movies}) => {
         title={movie.title}
         average_rating={movie.average_rating}
         release_date={movie.release_date}
+        key={movie.id}
       />
     )
-
-
   })
+
+  return (
+    <div className='movie-container'>
+      {movieCards}
+    </div>
+  )
 }
 
 
