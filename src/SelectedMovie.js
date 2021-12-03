@@ -1,7 +1,7 @@
 import React from 'react';
 import './SelectedMovie.css';
 
-const SelectedMovie = () => {
+const SelectedMovie = ({changeSection}) => {
   let num = 63000000;
   let mins = getTime(139);
   let date = getDate('2019-12-04');
@@ -17,6 +17,7 @@ const SelectedMovie = () => {
        <p className='movie-detail'><strong>Budget: </strong>${num.toLocaleString("en-US")}</p>
        <p className='movie-detail'><strong>Revenue: </strong>${num.toLocaleString("en-US")}</p>
        <p className='movie-detail'><strong>Runtime: </strong>{mins}</p>
+       <button className='return-button' onClick={() => changeSection('mainPage')}>Return</button>
       </section>
     </main>
   )

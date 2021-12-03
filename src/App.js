@@ -9,22 +9,26 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      currentSection: 'mainPage',
     }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(res => res.json())
-    .then(data => this.setState({movies: data.movies}))
+    .then(data => this.setState({movies: data.movies}));
+  }
+
+  changeSection = (section) => {
+    this.setState({currentSection: section});
   }
 
   render() {
     return (
       <main className='App'>
         <Header />
-        {/* <SelectedMovie /> */}
-        <MovieContainer movies={this.state.movies}/>
+        {(this.state.currentSection === 'mainPage') ? <MovieContainer movies={this.state.movies} currentSection={this.state.currentSection} changeSection={this.changeSection}/> : <SelectedMovie changeSection={this.changeSection} />}
       </main>
     )
   }
