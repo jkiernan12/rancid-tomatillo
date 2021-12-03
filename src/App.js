@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MovieContainer from './MovieContainer';
 import './App.css';
-import movieData from './MovieData';
 import Header from './Header';
 import SelectedMovie from './SelectedMovie';
 
@@ -9,15 +8,19 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       currentSection: 'mainPage',
+      error: ''
     }
   }
 
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(res => res.json())
-    .then(data => this.setState({movies: data.movies}));
+    .then(data => this.setState({movies: data.movies}))
+    .catch(err => {
+      this.setState({error: err})
+    });
   }
 
   changeSection = (section) => {
@@ -28,7 +31,10 @@ class App extends Component {
     return (
       <main className='App'>
         <Header />
-        {(this.state.currentSection === 'mainPage') ? <MovieContainer movies={this.state.movies} currentSection={this.state.currentSection} changeSection={this.changeSection}/> : <SelectedMovie changeSection={this.changeSection} />}
+        {this.state.error && <p>Something went wrong -- check your network</p>}
+        {this.state.currentSection === 'mainPage' ? 
+        <MovieContainer movies={this.state.movies} changeSection={this.changeSection}/> : 
+        <SelectedMovie changeSection={this.changeSection} />}
       </main>
     )
   }
