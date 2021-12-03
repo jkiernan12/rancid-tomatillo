@@ -1,4 +1,5 @@
 import React from 'react'
+import './Poster.css'
 
 const Poster = ({id, poster_path, backdrop_path, title, average_rating, release_date}) => {
   return (
