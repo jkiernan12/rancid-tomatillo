@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MovieContainer from './MovieContainer';
 import './App.css';
 import movieData from './MovieData';
+import Header from './Header';
+import SelectedMovie from './SelectedMovie';
 
 class App extends Component {
   constructor() {
@@ -11,11 +13,18 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(res => res.json())
+    .then(data => this.setState({movies: data.movies}))
+  }
+
   render() {
     return (
       <main className='App'>
-        <h1>Movies</h1>
+        <Header />
         <MovieContainer movies={this.state.movies}/>
+        <SelectedMovie />
       </main>
     )
   }

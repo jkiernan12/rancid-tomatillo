@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  background-color: black;
+  color: rgb(223, 209, 6);
+  height: 150px;
+}
+
+.logo {
+  width: 150px;
+  float: left;
+}
+
+.search-container {
+  position: absolute;
+  width: 100%;
+}
