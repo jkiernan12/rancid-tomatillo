@@ -1,0 +1,14 @@
+.search-bar {
+  width: 65%;
+  min-width:375px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(223, 209, 6);
+  transition: .2s;
+  background-color: black;
+  color: white;
+}
+
+.search-bar:hover {
+  box-shadow: 0 0 12px rgb(223, 209, 6);
+}

@@ -1,0 +1,23 @@
+.selected-page {
+  display: flex;
+  align-items: center;
+  margin: 50px;
+}
+
+.selected-poster {
+  max-height: 90vh;
+  margin: 50px;
+}
+
+.selected-details {
+  margin: 50px;
+}
+
+.movie-detail {
+  text-align: left;
+  margin: 3px;
+}
+
+.overview {
+  margin-bottom: 20px;
+}
