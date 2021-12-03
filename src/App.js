@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       movies: [],
       currentSection: 'mainPage',
+      selectedID: 0,
       error: ''
     }
   }
@@ -23,8 +24,8 @@ class App extends Component {
     });
   }
 
-  changeSection = (section) => {
-    this.setState({currentSection: section});
+  changeSection = (section, id) => {
+    this.setState({currentSection: section, selectedID: id});
   }
 
   render() {
@@ -34,7 +35,7 @@ class App extends Component {
         {this.state.error && <p>Something went wrong -- check your network</p>}
         {this.state.currentSection === 'mainPage' ? 
         <MovieContainer movies={this.state.movies} changeSection={this.changeSection}/> : 
-        <SelectedMovie changeSection={this.changeSection} />}
+        <SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}
       </main>
     )
   }
