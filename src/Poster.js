@@ -5,7 +5,7 @@ const Poster = ({id, poster_path, backdrop_path, title, average_rating, release_
   return (
     <div className='poster'>
       <img className='poster-img' src={poster_path} alt="Movie poster" />
-      <h1>{title}</h1>
+      <h2>{title}</h2>
     </div>
   )
 }
