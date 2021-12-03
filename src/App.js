@@ -23,8 +23,8 @@ class App extends Component {
     return (
       <main className='App'>
         <Header />
-        <MovieContainer movies={this.state.movies}/>
         <SelectedMovie />
+        <MovieContainer movies={this.state.movies}/>
       </main>
     )
   }
