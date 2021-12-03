@@ -1,5 +1,6 @@
 import React from 'react';
 import Poster from './Poster'
+import './MovieContainer.css'
 
 const MovieContainer = ({movies}) => {
   const movieCards = movies.map(movie => {
