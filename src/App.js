@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import MovieContainer from './MovieContainer';
 import './App.css';
 import Header from './Header';
@@ -40,14 +41,20 @@ class App extends Component {
     return (
       <main className='App'>
         <Header filterMovies={this.filterMovies}/>
+        <Routes>
+          <Route path="/" element={<MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection}/>}/>
+          <Route path="/:movieId" element={<SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}/>
+        </Routes>
+
+
         {this.state.error && <p>Something went wrong -- check your network</p>}
-        {this.state.currentSection === 'mainPage' ? 
-        <MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection} /> : 
-        <SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}
       </main>
     )
   }
-
+  
+  // {/* {this.state.currentSection === 'mainPage' ?  */}
+  // <MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection} /> : 
+  // <SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}
 
 }
 
