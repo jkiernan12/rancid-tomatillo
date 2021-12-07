@@ -21,7 +21,6 @@ class SelectedMovie extends Component {
     return `${date.getDay()}, ${date.getFullYear()}`
   }
   
-
   getTime = (mins) => {
     const hours = Math.floor(mins / 60);
     const remainingMins = mins % 60;

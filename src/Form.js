@@ -8,7 +8,13 @@ class Form extends Component {
   render() {
     return (
       <form>
-        <input className='search-bar' type="text" name="search" placeholder="search for a movie"></input>
+        <input 
+          className='search-bar' 
+          type="text" 
+          name="search" 
+          placeholder="search for a movie"
+          onChange={(e) => this.props.filterMovies(e.target.value)}
+        />
       </form>
     )
   }

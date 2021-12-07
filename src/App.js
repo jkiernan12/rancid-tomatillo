@@ -9,6 +9,7 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
+      filteredMovies: [],
       currentSection: 'mainPage',
       selectedID: 0,
       error: ''
@@ -21,20 +22,27 @@ class App extends Component {
     .then(data => this.setState({movies: data.movies}))
     .catch(err => {
       this.setState({error: err})
-    });
+    });   
   }
 
   changeSection = (section, id) => {
     this.setState({currentSection: section, selectedID: id});
   }
 
+  filterMovies = (e) => {
+    const filteredMovies = this.state.movies.filter(entry => entry.title.toLowerCase().includes(e.toLowerCase()))
+    this.setState({
+      filteredMovies: filteredMovies
+    })
+  }
+
   render() {
     return (
       <main className='App'>
-        <Header />
+        <Header filterMovies={this.filterMovies}/>
         {this.state.error && <p>Something went wrong -- check your network</p>}
         {this.state.currentSection === 'mainPage' ? 
-        <MovieContainer movies={this.state.movies} changeSection={this.changeSection}/> : 
+        <MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection} /> : 
         <SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}
       </main>
     )
