@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Trailer from './Trailer.js'
 import './SelectedMovie.css';
 
 class SelectedMovie extends Component {
@@ -45,6 +46,7 @@ class SelectedMovie extends Component {
           {Number(movie.budget) > 0 && <p className='movie-detail'><strong>Budget: </strong>${this.formatNumber(movie.budget)}</p>}
           {Number(this.formatNumber(movie.revenue)) > 0 && <p className='movie-detail'><strong>Revenue: </strong>${movie.revenue}</p>}
           <p className='movie-detail'><strong>Runtime: </strong>{this.getTime(movie.runtime)}</p>
+          <Trailer id={movie.id}/>
           <button className='return-button' onClick={() => this.props.changeSection('mainPage')}>Return</button>
         </section>}
       </main>
