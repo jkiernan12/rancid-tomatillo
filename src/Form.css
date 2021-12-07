@@ -7,8 +7,9 @@
   transition: .2s;
   background-color: black;
   color: white;
+  padding-left: 10px;
 }
 
 .search-bar:hover {
-  box-shadow: 0 0 12px rgb(223, 209, 6);
+  box-shadow: 0 0 20px rgb(223, 209, 6);
 }

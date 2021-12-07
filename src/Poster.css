@@ -4,12 +4,16 @@
   padding: 10px;
   background-color: black;
   color: white;
+  border-radius: 3px;
 }
 
 .poster:hover {
-  box-shadow: 0 0 12px rgb(223, 209, 6);
+  box-shadow: 0 0 20px #ffcc00;
+  cursor: pointer;
 }
 
 .poster-img {
-  height: 15em;
+  height: 20em;
+  width: 15em;
+
 }
