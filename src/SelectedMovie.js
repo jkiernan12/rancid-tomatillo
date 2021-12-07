@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Trailer from './Trailer.js'
+import { Link } from 'react-router-dom'; 
 import './SelectedMovie.css';
 
 class SelectedMovie extends Component {
@@ -48,7 +49,9 @@ class SelectedMovie extends Component {
           {Number(this.formatNumber(movie.revenue)) > 0 && <p className='movie-detail'><strong>Revenue: </strong>${movie.revenue}</p>}
           <p className='movie-detail'><strong>Runtime: </strong>{this.getTime(movie.runtime)}</p>
           <Trailer id={movie.id}/>
-          <button className='return-button' onClick={() => this.props.changeSection('mainPage')}>Return</button>
+          <Link to="/">
+          <button className='return-button'>Return</button>
+          </Link>
         </section>}
       </main>
     )
