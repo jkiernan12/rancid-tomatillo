@@ -1,0 +1,16 @@
+.trailer-title {
+  border-left: 5px solid rgb(223, 209, 6);
+  padding-left: 10px;
+  text-align: left;
+  font-size: 24px;
+}
+
+.trailer {
+  width: 100%;
+  max-width: 560px;
+}
+
+.trailer-video {
+  width: 100%;
+  aspect-ratio: 1.77 / 1;
+}
