@@ -5,3 +5,7 @@
   grid-gap: 10px;
   background-color: black;
 }
+
+.movie-link {
+  text-decoration: none;
+}

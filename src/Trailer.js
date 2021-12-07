@@ -13,7 +13,6 @@ class Trailer extends Component {
     .then(res => res.json())
     .then(data => {
       const selectedTrailer = data.videos.find(movie => movie.type === 'Trailer');
-      console.log(selectedTrailer)
       this.setState({trailerInfo: selectedTrailer});
     })
   }

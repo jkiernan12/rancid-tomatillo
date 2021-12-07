@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import MovieContainer from './MovieContainer';
 import './App.css';
 import Header from './Header';
-import SelectedMovie from './SelectedMovie';
+import SelectedPage from './SelectedPage';
 
 class App extends Component {
   constructor() {
@@ -43,7 +43,7 @@ class App extends Component {
         <Header filterMovies={this.filterMovies}/>
         <Routes>
           <Route path="/" element={<MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection}/>}/>
-          <Route path="/:movieId" element={<SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}/>
+          <Route path="/:movieId" element={<SelectedPage />}/>
         </Routes>
 
 
@@ -51,11 +51,6 @@ class App extends Component {
       </main>
     )
   }
-  
-  // {/* {this.state.currentSection === 'mainPage' ?  */}
-  // <MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection} /> : 
-  // <SelectedMovie id={this.state.selectedID} changeSection={this.changeSection} />}
-
 }
 
 export default App;
