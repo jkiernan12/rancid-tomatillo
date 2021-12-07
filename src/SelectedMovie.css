@@ -16,11 +16,12 @@
 
 .selected-poster {
   max-height: 90vh;
-  margin: 50px;
+  max-width: 50%;
+  margin: 5%;
 }
 
 .selected-details {
-  margin: 50px;
+  margin: 5%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
