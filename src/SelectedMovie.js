@@ -42,6 +42,7 @@ class SelectedMovie extends Component {
           <p className='movie-detail overview'>{movie.overview}</p>
           {movie.tagline && <p className='movie-detail'><strong>Tagline: </strong>{movie.tagline}</p>}
           <p className='movie-detail'><strong>Rating: </strong>⭐️ {Math.round(movie.average_rating)}/10</p>
+          <p className='movie-detail'><strong>Genres: </strong> {movie.genres.join(', ')}</p>
           <p className='movie-detail'><strong>Release Date: </strong>{this.getDate(movie.release_date)}</p>
           {Number(movie.budget) > 0 && <p className='movie-detail'><strong>Budget: </strong>${this.formatNumber(movie.budget)}</p>}
           {Number(this.formatNumber(movie.revenue)) > 0 && <p className='movie-detail'><strong>Revenue: </strong>${movie.revenue}</p>}
