@@ -16,9 +16,9 @@ class SelectedMovie extends Component {
   }
 
   getDate = (dateStr) => {
+    const months = ['January', 'December', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let date = new Date(dateStr);
-    // const month = new Intl.DateTimeFormat('en-US').format(date);
-    return `${date.getDay()}, ${date.getFullYear()}`
+    return `${months[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()}`
   }
   
   getTime = (mins) => {
@@ -26,23 +26,27 @@ class SelectedMovie extends Component {
     const remainingMins = mins % 60;
     return `${hours} ${(hours > 1) ? 'hours' : 'hour'} ${remainingMins} minutes`
   }
+
+  formatNumber = (num) => {
+    return new Intl.NumberFormat('en-US').format(num);
+  }
   
   render() {
     const movie = this.state.movieInfo;
     return (
       <main className='selected-page'>
         <img className='selected-poster' src={movie.poster_path} />
-        <section className='selected-details'>
-         <h2>{movie.title}</h2>
-         <p className='movie-detail overview'>{movie.overview}</p>
-         {movie.tagline && <p className='movie-detail'><strong>Tagline: </strong>{movie.tagline}</p>}
-         <p className='movie-detail'><strong>Rating: </strong>⭐️ {Math.round(movie.average_rating)}/10</p>
-         <p className='movie-detail'><strong>Release Date: </strong>{movie.release_date}</p>
-         {Number(movie.budget) > 0 && <p className='movie-detail'><strong>Budget: </strong>${movie.budget}</p>}
-         {Number(movie.revenue) > 0 && <p className='movie-detail'><strong>Revenue: </strong>${movie.revenue}</p>}
-         <p className='movie-detail'><strong>Runtime: </strong>{this.getTime(movie.runtime)}</p>
-         <button className='return-button' onClick={() => this.props.changeSection('mainPage')}>Return</button>
-        </section>
+        {movie.title && <section className='selected-details'>
+          <h2 className='selected-title'>{movie.title}</h2>
+          <p className='movie-detail overview'>{movie.overview}</p>
+          {movie.tagline && <p className='movie-detail'><strong>Tagline: </strong>{movie.tagline}</p>}
+          <p className='movie-detail'><strong>Rating: </strong>⭐️ {Math.round(movie.average_rating)}/10</p>
+          <p className='movie-detail'><strong>Release Date: </strong>{this.getDate(movie.release_date)}</p>
+          {Number(movie.budget) > 0 && <p className='movie-detail'><strong>Budget: </strong>${this.formatNumber(movie.budget)}</p>}
+          {Number(this.formatNumber(movie.revenue)) > 0 && <p className='movie-detail'><strong>Revenue: </strong>${movie.revenue}</p>}
+          <p className='movie-detail'><strong>Runtime: </strong>{this.getTime(movie.runtime)}</p>
+          <button className='return-button' onClick={() => this.props.changeSection('mainPage')}>Return</button>
+        </section>}
       </main>
     )
   }
