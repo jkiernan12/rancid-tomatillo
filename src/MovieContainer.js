@@ -6,7 +6,7 @@ import './MovieContainer.css'
 const MovieContainer = ({movies, changeSection, filteredMovies}) => {
   const movieCards = movies.map(movie => {
     return (
-      <Link to={'/' + movie.id} className='movie-link'>
+      <Link to={'/' + movie.id} key={movie.id} className='movie-link'>
         <Poster 
           id={movie.id}
           poster_path={movie.poster_path}
@@ -14,7 +14,6 @@ const MovieContainer = ({movies, changeSection, filteredMovies}) => {
           title={movie.title}
           average_rating={movie.average_rating}
           release_date={movie.release_date}
-          key={movie.id}
           changeSection={changeSection}
         />
       </Link>
@@ -23,7 +22,7 @@ const MovieContainer = ({movies, changeSection, filteredMovies}) => {
 
   const filteredMovieCards = filteredMovies.map(movie => {
     return (
-      <Link to={'/' + movie.id} className='movie-link'>
+      <Link to={'/' + movie.id} key={movie.id} className='movie-link'>
         <Poster 
           id={movie.id}
           poster_path={movie.poster_path}
@@ -31,7 +30,6 @@ const MovieContainer = ({movies, changeSection, filteredMovies}) => {
           title={movie.title}
           average_rating={movie.average_rating}
           release_date={movie.release_date}
-          key={movie.id}
           changeSection={changeSection}
         />
       </Link>
