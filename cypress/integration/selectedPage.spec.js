@@ -32,9 +32,15 @@ describe('selected movie page', () => {
   })
 
   it('should return to the main page', () => {
+    cy.fixture('./movielisting.json').then((allMovies) => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        statusCode: 200,
+        body: allMovies
+      })
     cy.contains('Return')
     .click()
     cy.url()
     .should('include', 'localhost:3000/')
+    })
   })
 })
