@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React from 'react';
 import './Form.css';
 
-class Form extends Component {
-  constructor() {
-    super();
-  }
-  render() {
+const Form = () => {
     return (
       <form>
         <input 
@@ -17,7 +14,6 @@ class Form extends Component {
         />
       </form>
     )
-  }
 }
 
 export default Form;

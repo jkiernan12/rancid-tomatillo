@@ -37,7 +37,7 @@ class SelectedMovie extends Component {
     const movie = this.state.movieInfo;
     return (
       <main className='selected-page'>
-        <img className='selected-poster' src={movie.poster_path} />
+        <img className='selected-poster' src={movie.poster_path} alt='movie poster' />
         {movie.title && <section className='selected-details'>
           <h2 className='selected-title'>{movie.title}</h2>
           <p className='movie-detail overview'>{movie.overview}</p>
