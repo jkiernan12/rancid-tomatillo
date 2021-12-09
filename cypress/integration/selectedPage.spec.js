@@ -1,7 +1,13 @@
 describe('selected movie page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/581392');
-  })
+    cy.fixture('./peninsula.json').then((movie) => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', {
+        statusCode: 200,
+        body: movie
+      })
+      cy.visit('http://localhost:3000/581392');
+    })
+})
 
   it('should have all the movie details', () => {
     cy.contains('Peninsula')
