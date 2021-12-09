@@ -1,12 +1,20 @@
 describe('main page',() => {
   beforeEach(() => {
+    cy.fixture('./movielisting.json').then((allMovies) => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        statusCode: 200,
+        body: allMovies
+      })
     cy.visit('http://localhost:3000/');
   })
+})
+
   it('should visit homepage and render movies', () => {
-    cy.contains('Money Plane')
-    .should('be.visible')
-    cy.contains('Mulan')
-    .should('be.visible')
+      cy.contains('Money Plane')
+      .should('be.visible')
+      cy.contains('Mulan')
+      .should('be.visible')
+
   })
 
   it('should visit a movie page after clicking it', () => {
@@ -31,4 +39,4 @@ describe('main page',() => {
     cy.contains('Tenet')
     .should('exist');
   })
-} )
+})

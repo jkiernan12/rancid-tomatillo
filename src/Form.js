@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Form.css';
 
-class Form extends Component {
-  constructor() {
-    super();
-  }
-  render() {
+const Form = ( {filterMovies} ) => {
     return (
       <form>
         <input 
@@ -13,11 +9,10 @@ class Form extends Component {
           type="text" 
           name="search" 
           placeholder="search for a movie"
-          onChange={(e) => this.props.filterMovies(e.target.value)}
+          onChange={(e) => filterMovies(e.target.value)}
         />
       </form>
     )
-  }
 }
 
 export default Form;

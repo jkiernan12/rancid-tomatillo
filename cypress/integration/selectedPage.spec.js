@@ -1,7 +1,13 @@
 describe('selected movie page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/581392');
-  })
+    cy.fixture('./peninsula.json').then((movie) => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/581392', {
+        statusCode: 200,
+        body: movie
+      })
+      cy.visit('http://localhost:3000/581392');
+    })
+})
 
   it('should have all the movie details', () => {
     cy.contains('Peninsula')
@@ -26,9 +32,15 @@ describe('selected movie page', () => {
   })
 
   it('should return to the main page', () => {
+    cy.fixture('./movielisting.json').then((allMovies) => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        statusCode: 200,
+        body: allMovies
+      })
     cy.contains('Return')
     .click()
     cy.url()
     .should('include', 'localhost:3000/')
+    })
   })
 })
