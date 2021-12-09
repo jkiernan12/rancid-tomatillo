@@ -1,8 +1,7 @@
-// import React, { Component } from 'react';
 import React from 'react';
 import './Form.css';
 
-const Form = () => {
+const Form = ( {filterMovies} ) => {
     return (
       <form>
         <input 
@@ -10,7 +9,7 @@ const Form = () => {
           type="text" 
           name="search" 
           placeholder="search for a movie"
-          onChange={(e) => this.props.filterMovies(e.target.value)}
+          onChange={(e) => filterMovies(e.target.value)}
         />
       </form>
     )
