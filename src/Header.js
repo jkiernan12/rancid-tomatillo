@@ -1,12 +1,12 @@
 import React from 'react';
 import './Header.css';
-import logo from './logo.svg';
+import movie from './movie.png';
 import Form from './Form'
 
 const Header = ({filterMovies}) => {
   return (
     <header>
-    <img className='logo' src={logo} alt='logo' />
+    <img className='logo' src={movie} alt='movie' />
     <div className='search-container'>
       <h1>Rancid Tomatillos</h1>
       <Form 
