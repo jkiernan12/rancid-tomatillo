@@ -1,9 +1,11 @@
 .movie-container {
-  padding: 10px;
+  border-top: white;
+  padding: 30px 10px 10px 10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   background-color: black;
+  min-height: 100%;
 }
 
 .movie-link {
