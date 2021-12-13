@@ -1,7 +1,8 @@
 export const allMovieData = () => {
   return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(res => res.json())
-    .catch(err => showError(err))
+    // .catch(err => showError(err))
+  }
 
 
     
@@ -14,4 +15,3 @@ export const allMovieData = () => {
 //   } else {
 //     errorField.innerText = `${err.message}`
 //   }
-// }

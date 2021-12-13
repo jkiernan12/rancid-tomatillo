@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { allMovieData } from './fetch';
 import MovieContainer from './MovieContainer';
 import './App.css';
 import Header from './Header';
@@ -18,12 +19,11 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(res => res.json())
-    .then(data => this.setState({movies: data.movies}))
-    .catch(err => {
-      this.setState({error: err})
-    });   
+    return allMovieData()
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(err => {
+        this.setState({error: err})
+      });
   }
 
   changeSection = (section, id) => {
