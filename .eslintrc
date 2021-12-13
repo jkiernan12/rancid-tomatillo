@@ -6,7 +6,7 @@
     "mocha": true,
     "jquery": true
   },
-  "extends": "eslint:recommended",
+  "extends": "plugin:react/jsx-runtime",
   "parserOptions": { "sourceType": "module" },
   "rules": {
     "eqeqeq": ["error", "always"],
