@@ -8,13 +8,17 @@ class SelectedMovie extends Component {
   constructor() {
     super()
     this.state = {
-      movieInfo: {}
+      movieInfo: {},
+      error: ''
     }
   }
 
   componentDidMount() {
     return singleMovieData(this.props.id)
       .then(data => this.setState({movieInfo: data.movie}))
+      .catch(err => {
+        this.setState({error: err})
+      });
   }
 
   getDate = (dateStr) => {
@@ -53,6 +57,7 @@ class SelectedMovie extends Component {
           <button className='return-button'>Return</button>
           </Link>
         </section>}
+        {this.state.error && <p>Something went wrong -- check your network</p>}
       </main>
     )
   }
