@@ -4,7 +4,7 @@ export const allMovieData = () => {
   }
 
 export const singleMovieData = (id) => {
-  return fetch('sshttps://rancid-tomatillos.herokuapp.com/api/v2/movies/'+ id)
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/'+ id)
     .then(res => res.json())
 }
 
