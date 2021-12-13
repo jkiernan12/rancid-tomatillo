@@ -6,7 +6,7 @@ import Header from './Header';
 import SelectedPage from './SelectedPage';
 
 class App extends Component {
-  constructor() {
+  constructor() { 
     super()
     this.state = {
       movies: [],
