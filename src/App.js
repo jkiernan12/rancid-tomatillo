@@ -26,10 +26,6 @@ class App extends Component {
       });
   }
 
-  changeSection = (section, id) => {
-    this.setState({currentSection: section, selectedID: id});
-  }
-
   filterMovies = (e) => {
     const filteredMovies = this.state.movies.filter(entry => entry.title.toLowerCase().includes(e.toLowerCase()))
     this.setState({
@@ -42,7 +38,7 @@ class App extends Component {
       <main className='App'>
         <Header filterMovies={this.filterMovies}/>
         <Routes>
-          <Route path="/" element={<MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection} />}/>
+          <Route path="/" element={<MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} />}/>
           <Route path="/:movieId" element={<SelectedPage />}/>
         </Routes>
         {this.state.error && <p>Something went wrong -- check your network</p>}
