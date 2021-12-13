@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Trailer from './Trailer.js'
 import { Link } from 'react-router-dom'; 
+import { singleMovieData } from './fetch.js';
 import './SelectedMovie.css';
 
 class SelectedMovie extends Component {
@@ -12,9 +13,8 @@ class SelectedMovie extends Component {
   }
 
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/'+ this.props.id)
-    .then(res => res.json())
-    .then(data => this.setState({movieInfo: data.movie}))
+    return singleMovieData(this.props.id)
+      .then(data => this.setState({movieInfo: data.movie}))
   }
 
   getDate = (dateStr) => {

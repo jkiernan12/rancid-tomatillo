@@ -42,7 +42,7 @@ class App extends Component {
       <main className='App'>
         <Header filterMovies={this.filterMovies}/>
         <Routes>
-          <Route path="/" element={<MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection}/>}/>
+          <Route path="/" element={<MovieContainer movies={this.state.movies} filteredMovies={this.state.filteredMovies} changeSection={this.changeSection} />}/>
           <Route path="/:movieId" element={<SelectedPage />}/>
         </Routes>
         {this.state.error && <p>Something went wrong -- check your network</p>}
