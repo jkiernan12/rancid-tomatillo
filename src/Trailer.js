@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Trailer.css';
+import {movieTrailerData} from './fetch';
 
 class Trailer extends Component {
   constructor() {
@@ -9,12 +10,13 @@ class Trailer extends Component {
     }
   }
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.id}/videos`)
-    .then(res => res.json())
-    .then(data => {
-      const selectedTrailer = data.videos.find(movie => movie.type === 'Trailer');
-      this.setState({trailerInfo: selectedTrailer});
-    })
+    movieTrailerData(this.props.id)
+      .then(data => {
+        const selectedTrailer = data.videos.find(movie => {
+          return movie.type === 'Trailer'
+        });
+        this.setState({trailerInfo: selectedTrailer});
+      })
   }
 
   render() {
@@ -23,7 +25,12 @@ class Trailer extends Component {
       <React.Fragment>
         {trailer.id && <article className="trailer">
           <h3 className="trailer-title">Trailer</h3>
-          <iframe className="trailer-video"  src={"https://www.youtube.com/embed/" + trailer.key} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe className="trailer-video"  
+            src={"https://www.youtube.com/embed/" + trailer.key} 
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen></iframe>
         </article>}
       </React.Fragment>
     )

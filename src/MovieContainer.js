@@ -35,9 +35,9 @@ const MovieContainer = ({movies, filteredMovies}) => {
   })
 
   return (
-      <div className='movie-container'>
-        {!filteredMovies.length ? movieCards : filteredMovieCards}
-      </div>
+    <div className='movie-container'>
+      {!filteredMovies.length ? movieCards : filteredMovieCards}
+    </div>
   )
 }
 
