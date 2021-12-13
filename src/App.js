@@ -28,9 +28,7 @@ class App extends Component {
 
   filterMovies = (e) => {
     const filteredMovies = this.state.movies.filter(entry => entry.title.toLowerCase().includes(e.toLowerCase()))
-    this.setState({
-      filteredMovies: filteredMovies
-    })
+    this.setState({filteredMovies})
   }
 
   render() {
