@@ -3,7 +3,7 @@ import Poster from './Poster'
 import { Link } from 'react-router-dom';
 import './MovieContainer.css'
 
-const MovieContainer = ({movies, changeSection, filteredMovies}) => {
+const MovieContainer = ({movies, filteredMovies}) => {
   const movieCards = movies.map(movie => {
     return (
       <Link to={'/' + movie.id} key={movie.id} className='movie-link'>
@@ -14,7 +14,6 @@ const MovieContainer = ({movies, changeSection, filteredMovies}) => {
           title={movie.title}
           average_rating={movie.average_rating}
           release_date={movie.release_date}
-          changeSection={changeSection}
         />
       </Link>
     )
@@ -30,7 +29,6 @@ const MovieContainer = ({movies, changeSection, filteredMovies}) => {
           title={movie.title}
           average_rating={movie.average_rating}
           release_date={movie.release_date}
-          changeSection={changeSection}
         />
       </Link>
     )
