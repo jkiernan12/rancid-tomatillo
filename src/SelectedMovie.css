@@ -2,7 +2,6 @@
   display: flex;
   align-items:center;
   justify-content: space-between;
-  /* margin: 50px; */
   background-color: rgb(26, 26, 26);
   color: white;
 }
@@ -47,4 +46,14 @@
   margin-top: 15px;
   padding: 4px 10px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 1000px) {
+  .selected-page {
+    flex-direction: column;
+  }
+
+  .selected-poster {
+    margin-top: 10%;
+  }
 }
