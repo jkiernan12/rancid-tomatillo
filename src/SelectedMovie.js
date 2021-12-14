@@ -56,7 +56,7 @@ class SelectedMovie extends Component {
             <p className='movie-detail'><strong>Runtime: </strong>{this.getTime(movie.runtime)}</p>
             <Trailer id={movie.id}/>
             <Link to="/">
-            <button className='return-button'>Return</button>
+              <button className='return-button'>Return</button>
             </Link>
           </section>
           {this.state.error && <p>Something went wrong -- check your network</p>}

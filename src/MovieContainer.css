@@ -2,10 +2,12 @@
   border-top: white;
   padding: 30px 10px 10px 10px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 24%));
   grid-gap: 10px;
   background-color: black;
   min-height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
 .movie-link {
