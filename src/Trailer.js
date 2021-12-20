@@ -23,7 +23,7 @@ class Trailer extends Component {
     const trailer = this.state.trailerInfo;
     return (
       <React.Fragment>
-        {trailer.id && <article className="trailer">
+        {trailer && <article className="trailer">
           <h3 className="trailer-title">Trailer</h3>
           <iframe className="trailer-video"  
             src={"https://www.youtube.com/embed/" + trailer.key} 
